@@ -1,6 +1,6 @@
 {
   "name": "blindpass",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cursor overlay for BlindPass. Set BLINDPASS_PAT only for the PAT server; leave it empty and use Connect on the OAuth server.",
   "author": {
     "name": "BlindPass",

@@ -1,7 +1,7 @@
 ---
 name: blindpass
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
 description: >-
   Use BlindPass hosted MCP to fill logins, submit TOTP, inject env, rename
   and delete items without reading passwords. Enable either OAuth Connect or a PAT — never both on one
@@ -37,7 +37,10 @@ The person chooses per connection how secrets travel, and by default prefers the
 
 Setting up the CLI (before the first `blindpass run`, or when it says it is not logged in):
 - **Missing** (`command -v blindpass` finds nothing): offer the install command for the person's system and run it only after they agree: macOS `brew install blindpass-app/tap/blindpass`; macOS or Linux `curl -fsSL https://blindpass.app/cli/install.sh | sh`; Windows PowerShell `irm https://blindpass.app/cli/install.ps1 | iex`. The scripts check the download's SHA-256 before installing.
-- **Not logged in** (`blindpass status` fails with `not_logged_in`): the person logs in, never you. **Never ask for the PAT or the recovery kit in the chat**, and never put them on a command line you run. Give the person this one command to run in their own terminal (in Claude Code they can type it after `!`): `blindpass auth login`. It asks for both at hidden prompts and saves the login (on macOS the kit goes to the Keychain). Tell them where each comes from: the PAT from blindpass.app → Org → Access tokens → create one (it gets the CLI's `cli:run` scope; `bp_pat_…`, older `tl_pat_` ones work too), and the recovery kit is the text from their recovery-kit file (they can type the file's path instead). Then wait for them, and check with `blindpass status`.
+- **Not logged in** (`blindpass run` fails with `not_logged_in`, or the second line of `blindpass status` says `not logged in`): the person logs in, never you. **Never ask for the PAT or the recovery kit in the chat**, and never put them on a command line you run. Give the person this one command to run in their own terminal (in Claude Code they can type it after `!`): `blindpass auth login`. A browser window opens on blindpass.app: they check that it shows the same code as the terminal and approve with their passkey (no passkey: their recovery kit). The CLI gets its own token and the vault key, sealed so only that CLI can open them, and prints `Connected as <email>`.
+  - **No browser on that machine** (SSH, a container): `blindpass auth login --device`. It prints a page address and a code; they open the page on any device where they are signed in, type the code there and approve. Remind them to approve only a code they see in their own terminal.
+  - **They already have a token**: `blindpass auth login pat` asks for the PAT (blindpass.app → Org → Access tokens; it needs `cli:run`; `bp_pat_…`, older `tl_pat_` ones work too) and the recovery kit (the text of their recovery-kit file, or its path) at hidden prompts.
+  - Then wait for them, and check with `blindpass status` (its second line says how the CLI is connected).
 - Production is the default address; pass `--api <url>` only for another BlindPass server.
 
 Secret rules (every `get_secret` reply repeats them as `display: "never"` and `handling`):
