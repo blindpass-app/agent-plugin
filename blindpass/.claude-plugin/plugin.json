@@ -1,6 +1,6 @@
 {
   "name": "blindpass",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use BlindPass vault logins, TOTP, and env inject from an agent without putting secrets in the model.",
   "author": {
     "name": "BlindPass",

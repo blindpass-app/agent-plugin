@@ -1,5 +1,7 @@
 ---
 name: blindpass
+metadata:
+  version: "1.0.1"
 description: >-
   Use BlindPass hosted MCP to fill logins, submit TOTP, inject env, rename
   and delete items without reading passwords. Enable either OAuth Connect or a PAT — never both on one

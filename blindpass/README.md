@@ -28,7 +28,7 @@ claude mcp add --transport http blindpass-pat https://api-pat.blindpass.app/mcp 
 
 **Cursor:** Import Marketplace with `https://gitlab.com/maitalky/plugins`, install `blindpass`, then Connect or set `BLINDPASS_PAT`.
 
-Releases: bump `version` in `plugin.json`, `.claude-plugin/plugin.json` and `.cursor-plugin/plugin.json`, then `just plugin-publish --push` opens the catalog merge request.
+Releases: bump `version` in `plugin.json`, `.claude-plugin/plugin.json`, `.cursor-plugin/plugin.json` and `metadata.version` in `skills/blindpass/SKILL.md` (`just plugin-publish --check` confirms they agree), then `just plugin-publish --push` opens the catalog merge request.
 
 Privacy: <https://blindpass.app/legal/privacy>
 
