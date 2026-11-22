@@ -1,0 +1,17 @@
+{
+  "name": "blindpass",
+  "owner": {
+    "name": "BlindPass"
+  },
+  "metadata": {
+    "description": "BlindPass Agent Plugin",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "blindpass",
+      "source": "blindpass",
+      "description": "Fill sign-ins, submit 2FA codes and use granted secrets from your BlindPass vault without putting passwords in the model."
+    }
+  ]
+}

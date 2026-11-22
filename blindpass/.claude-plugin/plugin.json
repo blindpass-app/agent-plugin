@@ -1,0 +1,20 @@
+{
+  "name": "blindpass",
+  "version": "1.0.0",
+  "description": "Use BlindPass vault logins, TOTP, and env inject from an agent without putting secrets in the model.",
+  "author": {
+    "name": "BlindPass",
+    "url": "https://blindpass.app"
+  },
+  "homepage": "https://blindpass.app",
+  "privacyPolicyUrl": "https://blindpass.app/legal/privacy",
+  "license": "MIT",
+  "keywords": [
+    "password",
+    "vault",
+    "mcp",
+    "totp",
+    "autofill",
+    "secrets"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "blindpass",
+  "description": "BlindPass Agent Plugin",
+  "version": "1.0.0",
+  "owner": {
+    "name": "BlindPass",
+    "url": "https://blindpass.app"
+  },
+  "plugins": [
+    {
+      "name": "blindpass",
+      "source": "./blindpass",
+      "description": "Fill sign-ins, submit 2FA codes and use granted secrets from your BlindPass vault without putting passwords in the model.",
+      "version": "1.0.0",
+      "author": {
+        "name": "BlindPass",
+        "url": "https://blindpass.app"
+      }
+    }
+  ]
+}

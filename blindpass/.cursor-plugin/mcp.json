@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "blindpass": {
+      "type": "streamable-http",
+      "url": "https://api.blindpass.app/mcp"
+    },
+    "blindpass-pat": {
+      "type": "streamable-http",
+      "url": "https://api-pat.blindpass.app/mcp",
+      "headers": {
+        "Authorization": "Bearer ${BLINDPASS_PAT}"
+      }
+    }
+  }
+}

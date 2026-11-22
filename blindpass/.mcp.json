@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "blindpass": {
+      "type": "http",
+      "url": "https://api.blindpass.app/mcp"
+    }
+  }
+}

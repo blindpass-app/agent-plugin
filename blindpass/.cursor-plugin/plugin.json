@@ -1,0 +1,23 @@
+{
+  "name": "blindpass",
+  "version": "1.0.0",
+  "description": "Cursor overlay for BlindPass. Set BLINDPASS_PAT only for the PAT server; leave it empty and use Connect on the OAuth server.",
+  "author": {
+    "name": "BlindPass",
+    "url": "https://blindpass.app"
+  },
+  "homepage": "https://blindpass.app",
+  "license": "MIT",
+  "mcpServers": ".cursor-plugin/mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "BLINDPASS_PAT": {
+        "type": "string",
+        "title": "BlindPass PAT",
+        "description": "Optional machine token (bp_pat_…) from /app/org. Leave empty to use OAuth Connect on the blindpass server. Do not share one PAT across a team connector.",
+        "default": ""
+      }
+    }
+  }
+}

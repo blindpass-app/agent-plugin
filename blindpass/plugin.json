@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "blindpass",
+  "version": "1.0.0",
+  "description": "Use BlindPass vault logins, TOTP, and env inject from an agent without putting secrets in the model. Packages hosted MCP plus skills.",
+  "author": {
+    "name": "BlindPass",
+    "url": "https://blindpass.app"
+  },
+  "homepage": "https://blindpass.app",
+  "license": "MIT",
+  "keywords": ["password", "vault", "mcp", "totp", "autofill", "secrets"]
+}
