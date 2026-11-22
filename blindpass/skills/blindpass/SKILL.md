@@ -1,7 +1,7 @@
 ---
 name: blindpass
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
 description: >-
   Use BlindPass hosted MCP to fill logins, submit TOTP, inject env, rename
   and delete items without reading passwords. Enable either OAuth Connect or a PAT — never both on one
@@ -34,6 +34,11 @@ The person chooses per connection how secrets travel, and by default prefers the
 - **Run the given `command`**, replacing `<your command>` after `--` with your real command, and read the value from the variable it names (e.g. `$TOKEN`, `$PASSWORD`). Example: `blindpass run --item <id> --env TOKEN=token -- sh -c 'curl -H "Authorization: Bearer $TOKEN" https://api.example.com'`. The command's output shows `***` instead of the value. For ssh password prompts use `--askpass password`, for SSH keys `--ssh-agent`, and for an env item no `--env` at all (every variable is set).
 - If `blindpass run` stops because the vault kit needs approval, ask the person to run `blindpass unlock` once (it keeps one approval for an hour by default, `--minutes` up to 720; `blindpass lock` ends it, `blindpass status` shows it). Never run `unlock` yourself to get around the person.
 - **Only if you truly cannot run commands** (no shell in this agent, a sandbox without the CLI), call `get_secret` again with `fallback_reason`: one honest sentence, up to 300 characters, e.g. "no shell in this agent". It is stored in the person's activity log next to the read. Never invent a reason, and don't use it because the command failed for another reason: fix the command instead. When the connection is set to "Only through the CLI", no reason returns the value.
+
+Setting up the CLI (before the first `blindpass run`, or when it says it is not logged in):
+- **Missing** (`command -v blindpass` finds nothing): offer the install command for the person's system and run it only after they agree: macOS `brew install blindpass-app/tap/blindpass`; macOS or Linux `curl -fsSL https://blindpass.app/cli/install.sh | sh`; Windows PowerShell `irm https://blindpass.app/cli/install.ps1 | iex`. The scripts check the download's SHA-256 before installing.
+- **Not logged in** (`blindpass status` fails with `not_logged_in`): the person logs in, never you. **Never ask for the PAT or the recovery kit in the chat**, and never put them on a command line you run. Give the person this one command to run in their own terminal (in Claude Code they can type it after `!`): `blindpass auth login`. It asks for both at hidden prompts and saves the login (on macOS the kit goes to the Keychain). Tell them where each comes from: the PAT from blindpass.app → Org → Access tokens → create one (it gets the CLI's `cli:run` scope; `bp_pat_…`, older `tl_pat_` ones work too), and the recovery kit is the text from their recovery-kit file (they can type the file's path instead). Then wait for them, and check with `blindpass status`.
+- Production is the default address; pass `--api <url>` only for another BlindPass server.
 
 Secret rules (every `get_secret` reply repeats them as `display: "never"` and `handling`):
 - **Never show a secret in the chat**, even when the person asks for it. Say it's in BlindPass and tell them to open the item there (the eye icon shows it without leaving a copy).
