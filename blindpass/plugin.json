@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "blindpass",
-  "version": "1.0.3",
-  "description": "Use BlindPass vault logins, TOTP, and env inject from an agent without putting secrets in the model. Packages hosted MCP plus skills.",
+  "version": "1.0.8",
+  "description": "Fill sign-ins, submit 2FA codes and use granted secrets from your BlindPass vault without putting passwords in the model. Packages hosted MCP plus skills.",
   "author": {
     "name": "BlindPass",
     "url": "https://blindpass.app"

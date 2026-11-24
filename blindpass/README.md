@@ -11,13 +11,13 @@ Do not put a shared PAT on a team-wide connector. First-time Connect may sign up
 
 ## Install
 
-Published in the Maitalky catalog, <https://gitlab.com/maitalky/plugins>.
+Published in the BlindPass marketplace, <https://github.com/blindpass-app/agent-plugin>.
 
 **Claude Code** (OAuth server only; run `/mcp` → `blindpass` → Authenticate afterwards):
 
 ```
-/plugin marketplace add https://gitlab.com/maitalky/plugins.git
-/plugin install blindpass@maitalky
+/plugin marketplace add blindpass-app/agent-plugin
+/plugin install blindpass@blindpass
 ```
 
 For a PAT in Claude Code, add the PAT host yourself instead of the plugin's server:
@@ -26,9 +26,9 @@ For a PAT in Claude Code, add the PAT host yourself instead of the plugin's serv
 claude mcp add --transport http blindpass-pat https://api-pat.blindpass.app/mcp --header 'Authorization: Bearer ${BLINDPASS_PAT}'
 ```
 
-**Cursor:** Import Marketplace with `https://gitlab.com/maitalky/plugins`, install `blindpass`, then Connect or set `BLINDPASS_PAT`.
+**Cursor:** `/add-plugin https://github.com/blindpass-app/agent-plugin` (or Add Marketplace with that URL), install `blindpass`, then Connect or set `BLINDPASS_PAT`.
 
-Releases: bump `version` in `plugin.json`, `.claude-plugin/plugin.json`, `.cursor-plugin/plugin.json` and `metadata.version` in `skills/blindpass/SKILL.md` (`just plugin-publish --check` confirms they agree), then `just plugin-publish --push` opens the catalog merge request.
+Releases: bump `version` in `plugin.json`, `.claude-plugin/plugin.json`, `.cursor-plugin/plugin.json` and `metadata.version` in `skills/blindpass/SKILL.md` (`just plugin-publish --check` confirms they agree), commit, then `just plugin-publish --push` publishes it to the marketplace.
 
 Privacy: <https://blindpass.app/legal/privacy>
 
