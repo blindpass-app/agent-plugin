@@ -1,7 +1,8 @@
 {
   "name": "blindpass",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Cursor overlay for BlindPass. Set BLINDPASS_PAT only for the PAT server; leave it empty and use Connect on the OAuth server.",
+  "logo": ".claude-plugin/icon.png",
   "author": {
     "name": "BlindPass",
     "url": "https://blindpass.app"

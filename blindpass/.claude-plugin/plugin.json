@@ -1,7 +1,8 @@
 {
   "name": "blindpass",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Fill sign-ins, submit 2FA codes and use granted secrets from your BlindPass vault without putting passwords in the model.",
+  "icon": ".claude-plugin/icon.png",
   "author": {
     "name": "BlindPass",
     "url": "https://blindpass.app"
